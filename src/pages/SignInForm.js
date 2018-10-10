@@ -7,7 +7,8 @@ class SignInForm extends Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            isValidated: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -24,17 +25,35 @@ class SignInForm extends Component {
         });
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
 
+    validate = () => {
+        
+
+        if (this.flatFair.checkValidity() === false) {
+            return false;
+            // return false if login data is invalid
+        } else {
+            return true;
+            //return true if login is valid
+        }
+    }
+
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (this.validate()) {
+        // if valid set state to isValidated
+        this.setState({isValidated: true});
         console.log('The form was submitted with the following data:');
         console.log(this.state);
+        }
     }
 
     render() {
         return (
         <div className="formCenter">
-            <form onSubmit={this.handleSubmit} className="formFields" onSubmit={this.handleSubmit}>
+            <form ref={form => this.flatFair = form} onSubmit={this.handleSubmit} {...this.props} noValidate>
             <div className="formField">
                 <label className="formFieldLabel" htmlFor="email">E-Mail Address</label>
                 <input type="email" id="email" className="formFieldInput" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
@@ -46,7 +65,8 @@ class SignInForm extends Component {
               </div>
 
               <div className="formField">
-                  <button className="formFieldButton marginRight">Sign In</button> 
+                  <button className="formFieldButton marginRight">Sign In</button>
+                  <Link to="/" className="formFieldLink">I need to create an account</Link> 
               </div>
             </form>
           </div>

@@ -1,7 +1,7 @@
 .App {
   height: 100vh;
   display: flex;
-  color: white;
+  background-color: #2E4158;
 }
 
 .left {
@@ -10,8 +10,8 @@
 }
 
 .appForm {
-  width: 50%;
-  background-color: #2E4158;
+  width: 100%;
+  
   padding: 25px 40px;
   overflow: auto;
 }
@@ -24,19 +24,20 @@
   color: #707C8B;
   font-weight: 300;
   margin-bottom: 50px;
+  margin-right: 0;
 }
 
 .title {
   color: rgb(7, 71, 150);
   font-weight: 1000;
   font-size: 100px;
-  padding-left: 27%;
+  padding-left: 0;
 }
 
 .formTitleLink {
   color: #707C8B;
   text-decoration: none;
-  display: inline-block;
+  display: inline;
   font-size: 1.7em;
   margin: 0 10px;
   padding-bottom: 5px;
@@ -52,7 +53,8 @@
 }
 
 .formField {
-  margin-bottom: 40px;
+  margin-bottom: 5%;
+  margin-left: 0;
 }
 
 .formFieldLabel {
@@ -80,7 +82,7 @@
 }
 
 .radioLabel{
-  padding: 15px;
+  padding: 5px;
 }
 
 .formFieldButton {
@@ -96,10 +98,11 @@
 
 .formFieldLink {
   color: #66707D;
-  text-decoration: none;
-  display: inline-block;
-  border-bottom: 1.5px solid #ff6f00 ;
+  display:inline-flex;
+  text-decoration: underline;
+  padding-left: 5%;
   padding-bottom: 5px;
+  padding-top: 3px
 }
 
 .formFieldCheckboxLabel {
@@ -121,3 +124,8 @@
   margin-left: 5px;
 }
 
+
+
+.form-control:valid~.invalid-feedback {
+  display: none;
+}
