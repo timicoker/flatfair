@@ -8,7 +8,7 @@ class App extends Component {
       
   render() {
     return (
-      <Router basename="/flatfair-timi/">
+      <Router>
         <div className="App">
           
 
